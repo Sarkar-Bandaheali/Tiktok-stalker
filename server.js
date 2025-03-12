@@ -1,13 +1,12 @@
-// Sarkar-MD
-import express from "express";
-import axios from "axios";
-import path from "path";
+const express = require("express");
+const axios = require("axios");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
-app.use(express.static(path.join(process.cwd(), "public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
     res.render("index", { data: null, error: null });
