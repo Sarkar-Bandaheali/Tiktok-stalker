@@ -1,0 +1,51 @@
+<!-- Sarkar-MD -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Profile Stalker</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="neon-text">🎭 TikTok Stalker Tool By Bandaheali 🎭</h1>
+    </header>
+
+    <div class="container">
+        <form action="/stalk" method="GET" class="search-box">
+            <input type="text" name="username" placeholder="Enter TikTok username..." required>
+            <button type="submit">🔍 Search</button>
+        </form>
+
+        <% if (error) { %>
+            <p class="error neon-text"><%= error %></p>
+        <% } %>
+
+        <% if (data) { %>
+            <div class="profile-card">
+                <img src="<%= data.profilePic %>" alt="Profile Picture" class="profile-pic">
+                <h2 class="neon-text"><%= data.nickname %> (@<%= data.username %>)</h2>
+                <p>✅ Verified: <%= data.verified %></p>
+                <p>📍 Region: <%= data.region %></p>
+                <p>📝 Bio: <%= data.bio %></p>
+                <p>🔗 Bio Link: <a href="<%= data.bioLink %>" target="_blank"><%= data.bioLink %></a></p>
+                
+                <div class="stats">
+                    <p>👥 Followers: <%= data.followers %></p>
+                    <p>👤 Following: <%= data.following %></p>
+                    <p>❤️ Likes: <%= data.likes %></p>
+                    <p>🎥 Videos: <%= data.videos %></p>
+                </div>
+
+                <p>📅 Account Created: <%= data.accountCreated %></p>
+                <p>🔒 Private Account: <%= data.privateAccount %></p>
+                <a href="<%= data.profileUrl %>" target="_blank" class="btn">🔗 View TikTok Profile</a>
+            </div>
+        <% } %>
+
+        <a href="https://wa.me/923253617422" target="_blank" class="contact-btn">📞 Contact Owner</a>
+    </div>
+</body>
+</html>
+<!-- POWERED BY BANDAHEALI -->
