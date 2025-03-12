@@ -1,3 +1,4 @@
+// Sarkar-MD
 const express = require("express");
 const axios = require("axios");
 const path = require("path");
@@ -14,7 +15,9 @@ app.get("/", (req, res) => {
 
 app.get("/stalk", async (req, res) => {
     const { username } = req.query;
-    if (!username) return res.render("index", { data: null, error: "Please enter a username" });
+    if (!username) {
+        return res.render("index", { data: null, error: "Please enter a username" });
+    }
 
     try {
         const response = await axios.get(`https://api.siputzx.my.id/api/stalk/tiktok?username=${username}`);
@@ -44,4 +47,5 @@ app.get("/stalk", async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
 // POWERED BY BANDAHEALI
